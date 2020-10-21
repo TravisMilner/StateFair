@@ -8,7 +8,7 @@ eventHub.addEventListener("click" , clickEvent => {
                 rideTicketButtonClicked: true
             }
         })
-        console.log("Button was pressed" ,rideEvent)
+        // console.log("Button was pressed" ,rideEvent)
         eventHub.dispatchEvent(rideEvent)
     }
 })
