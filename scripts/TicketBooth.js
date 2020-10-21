@@ -1,12 +1,33 @@
 const contentTarget = document.querySelector(".entry")
 const eventHub = document.querySelector("#state-fair")
 
-eventHub.addEventListener()
+eventHub.addEventListener("click" , clickEvent => {
+    if (clickEvent.target.id === "rideTicket") {
+        const rideEvent = new CustomEvent("rideTicketPurchased", {
+            detail: {
+                rideTicketButtonClicked: true
+            }
+        })
+        // console.log("Button was pressed" ,rideEvent)
+        eventHub.dispatchEvent(rideEvent)
+
+    } if (clickEvent.target.id === "foodTicket") {
+        const foodEvent = new CustomEvent ("foodTicketPurchased", {
+            detail: {
+                foodTicketButtonClicked: true
+            }
+        })
+
+        console.log("food  button clicked", foodEvent)
+        eventHub.dispatchEvent(foodEvent)
+    }
+})
 
 export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">
-            Add button here
+            <button id = "rideTicket">Ride Ticket</button>
+            <button id = "foodTicket">Food Ticket</button>
         </div>
     `
 }
