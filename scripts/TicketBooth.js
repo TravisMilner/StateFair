@@ -20,7 +20,33 @@ eventHub.addEventListener("click" , clickEvent => {
 
         console.log("food  button clicked", foodEvent)
         eventHub.dispatchEvent(foodEvent)
+
+    } if (clickEvent.target.id === "gameTicket") {
+        const gameEvent = new CustomEvent ("gameTicketPurchased", {
+            detail: {
+                foodTicketButtonClicked: true
+            }
+        })
+        eventHub.dispatchEvent(gameEvent)
+
+    } if (clickEvent.target.id === "sideshowTicket") {
+        const sideShowEvent = new CustomEvent ("sideShowTicketPurchased", {
+            detail: {
+                sideShowTicketButtonClicked: true
+            }
+        })
+        eventHub.dispatchEvent(sideShowEvent)
+
+    } if (clickEvent.target.id === "fullPackageTicket") {
+        const fullPackageEvent = new CustomEvent("fullPackageTicketPurchased", {
+            detail: {
+                fullPackageTicketButtonClicked: true
+            }
+        })
+        eventHub.dispatchEvent(fullPackageEvent)
     }
+
+        
 })
 
 export const TicketBooth = () => {
@@ -28,6 +54,9 @@ export const TicketBooth = () => {
         <div class="ticketBooth">
             <button id = "rideTicket">Ride Ticket</button>
             <button id = "foodTicket">Food Ticket</button>
+            <button id = "gameTicket">Game Ticket</button>
+            <button id = "sideshowTicket">SideShow Ticket</button>
+            <button id = "fullPackageTicket">Full Package Ticket</button>
         </div>
     `
 }
